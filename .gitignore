@@ -1,0 +1,6 @@
+#ignore buid/ cmake and vscode pregen
+
+.vscode/
+out/
+CMakeLists.txt
+CMakePresets.json

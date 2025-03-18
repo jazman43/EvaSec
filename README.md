@@ -17,3 +17,10 @@ create this :)
 - object tracking with notifications this should send a message with a image of object that set it off with time date and camera id
 - local host web portal with setting config, live stream of cameras.
   
+---
+### Project Pram/ Third party
+
+- openCV
+- c++ 17
+- CMake
+- Linux
