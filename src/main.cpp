@@ -2,17 +2,28 @@
 #include <vector>
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui.hpp>
+#include <filesystem>
+
 
 
 #include "Header/Camera.h"
 
+#define CAMERAS_AMOUNT 1// amount of cameras we want to check for TODO make accessable to web portal
+
 int main()
 {
     std::vector<std::shared_ptr<Camera>> cameras;
+    
+    try {
+        std::filesystem::current_path("/mnt/Projects/EvaSecurity/out/build/EvaSys/");
+        std::cout << "Working directory set to: " << std::filesystem::current_path() << "\n";
+    } catch (const std::filesystem::filesystem_error& e) {
+        std::cerr << "Error setting working directory: " << e.what() << "\n";
+    }
 
     
-
-    for(int i = 0; i < 2; i++)
+    
+    for(int i = 0; i < CAMERAS_AMOUNT; i++)
     {
         std::shared_ptr<Camera> cam = std::make_shared<Camera>(i);
         if(cam->Open())

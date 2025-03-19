@@ -5,8 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/EvaSecurity.dir/src/FileManager.cpp.o.d"
   "CMakeFiles/EvaSecurity.dir/src/main.cpp.o"
   "CMakeFiles/EvaSecurity.dir/src/main.cpp.o.d"
-  "EvaSecurity"
-  "EvaSecurity.pdb"
+  "EvaSys/EvaSecurity"
+  "EvaSys/EvaSecurity.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

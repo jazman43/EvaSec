@@ -3,14 +3,13 @@
 #include <string>
 #include <filesystem>
 #include <ctime>
+#include <thread>
 
 
 class FileManagment
 {
 private:
-    std::string recFolder = "Recording";
-
-    cv::VideoWriter writer;
+    std::string recFolder = "Recording";    
 
     int fps = 30;
 
@@ -24,5 +23,10 @@ public:
     void SetupFolder(int camID);
 
     void SaveVidoRecording(cv::Mat& frame);
+
+private:
+
+    cv::VideoWriter writer;
+
 };
 

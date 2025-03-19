@@ -3,7 +3,6 @@
 Camera::Camera(int camID) : id(camID)
 {
     cam.open(id);
-
     
 
     if(!cam.isOpened())
@@ -27,9 +26,7 @@ void Camera::CameraUpdate()
     if(frame.empty())
     {
         std::cerr << "failed to grab frame " << id<< "\n";
-    }
-
-    
+    }    
     
     fileManager.SaveVidoRecording(frame);
     
