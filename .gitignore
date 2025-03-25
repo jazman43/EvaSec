@@ -1,6 +1,14 @@
-#ignore buid/ cmake and vscode pregen
-
+# Ignore VSCode settings
 .vscode/
+
+# Ignore CMake build output
 out/
-CMakeLists.txt
+
+# Ignore CMake presets
 CMakePresets.json
+
+# Ignore CMake build directory
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake

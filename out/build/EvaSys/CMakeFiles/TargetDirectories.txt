@@ -1,3 +1,0 @@
-/mnt/Projects/EvaSecurity/out/build/EvaSys/CMakeFiles/EvaSecurity.dir
-/mnt/Projects/EvaSecurity/out/build/EvaSys/CMakeFiles/edit_cache.dir
-/mnt/Projects/EvaSecurity/out/build/EvaSys/CMakeFiles/rebuild_cache.dir

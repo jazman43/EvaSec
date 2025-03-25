@@ -19,11 +19,11 @@ void FileManagment::SetupFolder(int camID)
     }
     
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    //std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
 
     std::ostringstream oss;
-    oss << "Cam_" << camID << "_Time_" << std::put_time(std::localtime(&timeStamp), "%Y-%m-%d_%H-%M-%S") << ".mp4";
+    oss << "Cam_" << camID << "_Time_" << std::put_time(std::localtime(&timeStamp), "%d-%m-%y_%H-%M-%S") << ".mp4";
     std::string filename = oss.str();
     
     std::string fullPath = recFolder + "/" + filename ; 
