@@ -28,6 +28,7 @@ void Camera::CameraUpdate()
         std::cerr << "failed to grab frame " << id<< "\n";
     }    
     
+    fileManager.CheckAndRotateRecording(id);
     fileManager.SaveVidoRecording(frame);
     
 
