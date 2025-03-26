@@ -7,7 +7,7 @@ void FileManagment::SetupFolder(int camID)
     time(&timeStamp);
     
     recFolder = "Recording";
-    camFolder = recFolder + "/" +"Camera_" + std::to_string(camID);
+    camFolder = recFolder + "/" + "Camera_" + std::to_string(camID);
 
     if(!std::filesystem::exists(recFolder))
     {
@@ -35,7 +35,7 @@ void FileManagment::SetupFolder(int camID)
     oss << "Cam_" << camID << "_Time_" << std::put_time(std::localtime(&timeStamp), "%d-%m-%y_%H-%M-%S") << ".mp4";
     std::string filename = oss.str();
     
-    std::string fullPath = recFolder + "/" + filename ; 
+    std::string fullPath = camFolder + "/" + filename ; 
 
     int codec = cv::VideoWriter::fourcc('m', 'p', '4', 'v'); 
 
