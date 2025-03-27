@@ -30,6 +30,8 @@ public:
     void SaveVidoRecording(cv::Mat& frame);
 
     void CheckAndRotateRecording(int camID);
+    void CheckOldRecording();
+    
 
 private:
 

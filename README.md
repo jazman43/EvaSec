@@ -10,10 +10,11 @@ create this :)
 ## current features
 - gets up to 1 cameras attached to divice. 
 - records and stores in folder 'recordings/Camera_num' 
-- records 10 min video's before creating a new file. 
+- records 10 min video's before creating a new file.
+- deletes old videos after 3 days.  
 
-files : camera / date d-m-y time h-m-s / .mp4
-        Cam_num_Time_25-03-25_13-23-45.mp4
+files : camera /        date d-m-y  time h-m-s / .mp4
+        Cam_num_Date_&_Time_25-03-25_13-23-45.mp4
 
 --- 
 ## Planed features

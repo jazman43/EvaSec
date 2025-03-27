@@ -32,7 +32,7 @@ void FileManagment::SetupFolder(int camID)
     
 
     std::ostringstream oss;
-    oss << "Cam_" << camID << "_Time_" << std::put_time(std::localtime(&timeStamp), "%d-%m-%y_%H-%M-%S") << ".mp4";
+    oss << "Cam_" << camID << "_Date_&_Time_" << std::put_time(std::localtime(&timeStamp), "%d-%m-%y_%H-%M-%S") << ".mp4";
     std::string filename = oss.str();
     
     std::string fullPath = camFolder + "/" + filename ; 
@@ -76,4 +76,58 @@ void FileManagment::CheckAndRotateRecording(int camID)
         SetupFolder(camID); // Start a new recording
     }
 
+}
+
+void FileManagment::CheckOldRecording()
+{
+    //                      days hours min seconds
+    const int maxInSeconds = 3 * 24 * 60 * 60; // 3 days
+    //const int maxInSeconds = 15 * 60 ; //15 mins test
+    time_t now = time(nullptr);
+
+    
+    for(const auto& entry : std::filesystem::directory_iterator(camFolder))
+    {
+        if(entry.is_regular_file() && entry.path().extension() == ".mp4")
+        {
+            std::string fileName = entry.path().filename().string();
+
+            size_t datePos = fileName.find("Date_&_Time_");
+            size_t dotPos  = fileName.find(".mp4");
+
+            
+            if(datePos != std::string::npos && dotPos != std::string::npos)
+            {
+                std::string dateTimeStr = fileName.substr(datePos + 12, dotPos - (datePos + 12));
+
+                std::tm fileTimeTm = {};
+                std::istringstream ss(dateTimeStr);
+                ss >> std::get_time(&fileTimeTm, "%d-%m-%y_%H-%M-%S");
+
+                if(!ss.fail())
+                {
+                    fileTimeTm.tm_isdst = -1; // Let system handle DST
+                    time_t fileTime = std::mktime(&fileTimeTm);
+
+                    if (fileTime != -1)
+                    {
+                        
+                        if (now - fileTime > maxInSeconds)
+                        {
+                            std::filesystem::remove(entry.path());
+                            std::cout << "Deleted old recording: " << entry.path() << "\n";
+                        }                  
+                        
+                    }
+                }
+                else
+                {
+                    std::cerr << "Error parsing timestamp from fileName: " << fileName << "\n";
+                }
+
+                
+                
+            }
+        }
+    }
 }

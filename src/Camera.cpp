@@ -28,9 +28,9 @@ void Camera::CameraUpdate()
         std::cerr << "failed to grab frame " << id<< "\n";
     }    
     
-    fileManager.CheckAndRotateRecording(id);
-    fileManager.SaveVidoRecording(frame);
-    
+    fileManager.CheckAndRotateRecording(id);//check if rec is more then 10 min and start new rec
+    fileManager.SaveVidoRecording(frame);//start recording
+    fileManager.CheckOldRecording();//delete old recordings
 
     cv::imshow("EvaSecurity camera "+ std::to_string(id), frame);
     
