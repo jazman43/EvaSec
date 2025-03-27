@@ -16,6 +16,8 @@ add_executable(EvaSecurity
     src/Camera.cpp
     src/Header/FileManagment.h
     src/FileManager.cpp
+    src/Header/Detector.h
+    src/Detector.cpp
     )
 
 target_link_libraries(EvaSecurity ${OpenCV_LIBS})

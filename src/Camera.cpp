@@ -26,7 +26,12 @@ void Camera::CameraUpdate()
     if(frame.empty())
     {
         std::cerr << "failed to grab frame " << id<< "\n";
-    }    
+    }
+    
+    if(detector.DetectPerson(frame))
+    {
+        std::cout << "send alert!!\n ";
+    }
     
     fileManager.CheckAndRotateRecording(id);//check if rec is more then 10 min and start new rec
     fileManager.SaveVidoRecording(frame);//start recording

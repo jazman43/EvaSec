@@ -3,6 +3,7 @@
 #include <opencv2/opencv.hpp>
 //CREATE CAMERA
 #include "FileManagment.h"
+#include "Detector.h"
 
 class Camera
 {
@@ -30,4 +31,5 @@ private:
     cv::Mat frame;
 
     FileManagment fileManager;
+    Detector detector;
 };
